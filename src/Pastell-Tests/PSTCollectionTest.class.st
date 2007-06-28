@@ -42,6 +42,19 @@ PSTCollectionTest >> testChild [
 ]
 
 { #category : #'as yet unclassified' }
+PSTCollectionTest >> testDNU [
+	| xml document html heads |
+	xml := '<html><head/><head/></html>'.
+	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	html := document html.
+	heads := html head.
+	self assert: heads size = 2.
+	self assert: heads first name = #head.
+	self assert: heads last name = #head
+	
+]
+
+{ #category : #'as yet unclassified' }
 PSTCollectionTest >> testDescendant [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.

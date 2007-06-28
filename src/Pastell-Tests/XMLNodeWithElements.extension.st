@@ -28,3 +28,10 @@ XMLNodeWithElements >> child: aSymbol [
 XMLNodeWithElements >> children [
 	^ PSTCollection withAll: self elements.
 ]
+
+{ #category : #'*Pastell-error handling' }
+XMLNodeWithElements >> doesNotUnderstand: aMessage [
+	(self child: aMessage selector)
+		ifEmpty: [super doesNotUnderstand: aMessage]
+		ifNotEmptyDo: [:value | ^ value].
+]

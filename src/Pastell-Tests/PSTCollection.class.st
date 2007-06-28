@@ -55,6 +55,13 @@ PSTCollection >> do: aBlock [
 	collection do: aBlock
 ]
 
+{ #category : #'error handling' }
+PSTCollection >> doesNotUnderstand: aMessage [
+	(self child: aMessage selector)
+		ifEmpty: [super doesNotUnderstand: aMessage]
+		ifNotEmptyDo: [:value | ^ value]
+]
+
 { #category : #'initialize-release' }
 PSTCollection >> initialize [
 	collection := OrderedCollection new

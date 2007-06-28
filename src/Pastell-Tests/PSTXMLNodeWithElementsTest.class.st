@@ -33,6 +33,16 @@ PSTXMLNodeWithElementsTest >> testChildren [
 ]
 
 { #category : #'as yet unclassified' }
+PSTXMLNodeWithElementsTest >> testDNU [
+	| results |
+	results := document html.
+	self assert: results isCollection.
+	self assert: results size = 1.
+	self assert: results first name = #html.
+	self should: [document reset] raise: MessageNotUnderstood
+]
+
+{ #category : #'as yet unclassified' }
 PSTXMLNodeWithElementsTest >> testDirectDescendant [
 	| results |
 	results := document root descendant: #head.
