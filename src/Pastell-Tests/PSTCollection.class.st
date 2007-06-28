@@ -32,6 +32,14 @@ PSTCollection >> child: aSymbol [
 	^ results
 ]
 
+{ #category : #accessing }
+PSTCollection >> descendant: aSymbol [
+	| results |
+	results := self species new.
+	collection do: [:each | results addAll: (each descendant: aSymbol)].
+	^ results
+]
+
 { #category : #enumerating }
 PSTCollection >> do: aBlock [
 	collection do: aBlock
