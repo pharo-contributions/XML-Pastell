@@ -109,12 +109,15 @@ XMLElement >> contentsDo: aBlock [
 ]
 
 { #category : #'*Pastell-accessing' }
-XMLElement >> descendant: aSymbol [
+XMLElement >> descendant: aSymbol [ 
 	| selected |
-	selected := PSTCollection new.
-	(self name = aSymbol)
+	selected := PastellCollection new.
+	self name = aSymbol 
 		ifTrue: [selected add: self]
-		ifFalse: [self elements ifNotEmpty: [selected addAll: ((PSTCollection withAll: self elements) descendant: aSymbol)]].
+		ifFalse: 
+			[self elements ifNotEmpty: 
+					[selected 
+						addAll: ((PastellCollection withAll: self elements) descendant: aSymbol)]].
 	^ selected
 ]
 

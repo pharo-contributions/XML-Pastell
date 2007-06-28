@@ -9,7 +9,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 PSTCollectionTest >> setUp [
-	collection := PSTCollection new
+	collection := PastellCollection new
 ]
 
 { #category : #'as yet unclassified' }
@@ -24,6 +24,14 @@ PSTCollectionTest >> testAdd [
 { #category : #'as yet unclassified' }
 PSTCollectionTest >> testAt [
 	collection add: 12.
+	self assert: (collection at: 1) = 12.
+	
+]
+
+{ #category : #'as yet unclassified' }
+PSTCollectionTest >> testAtPut [
+	collection add: 12.
+	collection at: 1 put: 12.
 	self assert: (collection at: 1) = 12.
 	
 ]
@@ -79,6 +87,11 @@ PSTCollectionTest >> testDo [
 ]
 
 { #category : #'as yet unclassified' }
+PSTCollectionTest >> testNew [
+	self shouldnt: [PastellCollection new: 5] raise: Error
+]
+
+{ #category : #'as yet unclassified' }
 PSTCollectionTest >> testRemove [
 	| result |
 	collection add: 12.
@@ -124,7 +137,7 @@ PSTCollectionTest >> testSlashSlash [
 PSTCollectionTest >> testWithAll [
 	| coll |
 	coll := OrderedCollection with: 12 with: 13.
-	collection := PSTCollection withAll: coll.
+	collection := PastellCollection withAll: coll.
 	self assert: collection size = 2.
 	self deny: collection == coll
 ]
