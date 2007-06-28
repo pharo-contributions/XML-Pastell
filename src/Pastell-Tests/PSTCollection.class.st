@@ -14,6 +14,16 @@ PSTCollection class >> withAll: aCollection [
 		yourself
 ]
 
+{ #category : #accessing }
+PSTCollection >> / aSymbol [
+	^ self child: aSymbol 
+]
+
+{ #category : #accessing }
+PSTCollection >> // aSymbol [
+	^ self descendant: aSymbol 
+]
+
 { #category : #adding }
 PSTCollection >> add: anObject [
 	^ collection add: anObject

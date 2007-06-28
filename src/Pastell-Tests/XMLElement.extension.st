@@ -1,6 +1,11 @@
 Extension { #name : #XMLElement }
 
 { #category : #'*Pastell-accessing' }
+XMLElement >> @ aSymbol [
+	^ self at: aSymbol 
+]
+
+{ #category : #'*Pastell-accessing' }
 XMLElement >> allAttributes [
 	^ self attributes asOrderedCollection
 ]

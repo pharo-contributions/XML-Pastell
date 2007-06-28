@@ -82,6 +82,32 @@ PSTCollectionTest >> testRemoveAbsent [
 ]
 
 { #category : #'as yet unclassified' }
+PSTCollectionTest >> testSlash [
+	| xml document html heads |
+	xml := '<html><head/><head/></html>'.
+	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	html := document / #html.
+	heads := html / #head.
+	self assert: heads size = 2.
+	self assert: heads first name = #head.
+	self assert: heads last name = #head
+	
+]
+
+{ #category : #'as yet unclassified' }
+PSTCollectionTest >> testSlashSlash [
+	| xml document html heads |
+	xml := '<html><head/><head/></html>'.
+	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	html := document / #html.
+	heads := html // #head.
+	self assert: heads size = 2.
+	self assert: heads first name = #head.
+	self assert: heads last name = #head
+	
+]
+
+{ #category : #'as yet unclassified' }
 PSTCollectionTest >> testWithAll [
 	| coll |
 	coll := OrderedCollection with: 12 with: 13.

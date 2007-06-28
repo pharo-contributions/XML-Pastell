@@ -1,6 +1,16 @@
 Extension { #name : #XMLNodeWithElements }
 
 { #category : #'*Pastell-accessing' }
+XMLNodeWithElements >> / aSymbol [
+	^ self child: aSymbol 
+]
+
+{ #category : #'*Pastell-accessing' }
+XMLNodeWithElements >> // aSymbol [
+	^ self descendant: aSymbol 
+]
+
+{ #category : #'*Pastell-accessing' }
 XMLNodeWithElements >> addElement: element [
 	element parent: self.
 	self elements add: element

@@ -25,6 +25,11 @@ PSTXMLElementTest >> testAt [
 ]
 
 { #category : #'as yet unclassified' }
+PSTXMLElementTest >> testCommercialAt [
+	self assert: (document root @ #lang) = 'it'
+]
+
+{ #category : #'as yet unclassified' }
 PSTXMLElementTest >> testDirectAncestor [
 	| result |
 	result := (document root descendant: #title) first ancestor: #head.

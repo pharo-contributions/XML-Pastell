@@ -50,6 +50,24 @@ PSTXMLNodeWithElementsTest >> testSelfDescendant [
 ]
 
 { #category : #'as yet unclassified' }
+PSTXMLNodeWithElementsTest >> testSlash [
+	| results |
+	results := document / #html.
+	self assert: results isCollection.
+	self assert: results size = 1.
+	self assert: results first name = #html
+]
+
+{ #category : #'as yet unclassified' }
+PSTXMLNodeWithElementsTest >> testSlashSlash [
+	| results |
+	results := document // #title.
+	self assert: results size = 1.
+	self assert: results first name = #title
+	
+]
+
+{ #category : #'as yet unclassified' }
 PSTXMLNodeWithElementsTest >> testUndirectDescendant [
 	| results |
 	results := document root descendant: #title.

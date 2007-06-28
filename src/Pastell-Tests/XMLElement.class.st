@@ -30,6 +30,11 @@ XMLElement class >> named: aString namespace: ns uri: uri attributes: attributeL
 		setAttributes: attributeList
 ]
 
+{ #category : #'*Pastell-accessing' }
+XMLElement >> @ aSymbol [
+	^ self at: aSymbol 
+]
+
 { #category : #initialize }
 XMLElement >> addContent: contentString [
 	self contents add: contentString
