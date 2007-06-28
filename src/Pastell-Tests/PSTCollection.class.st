@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'collection'
 	],
-	#category : #'Pastell-Collections'
+	#category : #'Pastell-Base'
 }
 
 { #category : #'instance creation' }

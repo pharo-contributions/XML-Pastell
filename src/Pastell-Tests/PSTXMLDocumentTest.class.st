@@ -16,6 +16,12 @@ PSTXMLDocumentTest >> setUp [
 ]
 
 { #category : #'as yet unclassified' }
+PSTXMLDocumentTest >> testAncestor [
+	self assert: (document ancestor: #title) isNil.
+	
+]
+
+{ #category : #'as yet unclassified' }
 PSTXMLDocumentTest >> testDescendant [
 	| results |
 	results := document descendant: #title.

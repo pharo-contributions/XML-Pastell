@@ -25,6 +25,14 @@ PSTXMLNodeWithElementsTest >> testChild [
 ]
 
 { #category : #'as yet unclassified' }
+PSTXMLNodeWithElementsTest >> testChildren [
+	| results |
+	results := document root children.
+	self assert: results size = 2.
+	self assert: results first name = #head.
+]
+
+{ #category : #'as yet unclassified' }
 PSTXMLNodeWithElementsTest >> testDirectDescendant [
 	| results |
 	results := document root descendant: #head.
