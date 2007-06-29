@@ -23,6 +23,11 @@ PastellCollection >> child: aSymbol [
 ]
 
 { #category : #accessing }
+PastellCollection >> contentString [
+	^ self collect: [:each | each contentString]
+]
+
+{ #category : #accessing }
 PastellCollection >> descendant: aSymbol [
 	| results |
 	results := self species new.

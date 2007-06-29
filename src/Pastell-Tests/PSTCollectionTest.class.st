@@ -50,6 +50,15 @@ PSTCollectionTest >> testChild [
 ]
 
 { #category : #'as yet unclassified' }
+PSTCollectionTest >> testContentString [
+	| xml document text |
+	xml := '<html><head>Test</head></html>'.
+	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	text := document html head contentString.
+	self assert: text first = 'Test'.
+]
+
+{ #category : #'as yet unclassified' }
 PSTCollectionTest >> testDNU [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
