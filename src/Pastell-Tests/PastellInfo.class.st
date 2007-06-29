@@ -57,7 +57,7 @@ will return a collection whose first element corresponds to the 'head' tag, and 
 
 #descendant: & #//
 -----------------
-Similar to #child:, #descendant: returns all the XMLElement instances that are descendant of the receiver. So, if we have an XMLElement instance for the 'html' tag, we could send (""full"" form)
+Similar to #child:, #descendant: returns all the XMLElement instances that are descendant of the receiver, including if necessary the receiver itself. So, if we have an XMLElement instance for the 'html' tag, we could send (""full"" form)
 
    html descendant: #p
 
