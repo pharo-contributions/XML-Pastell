@@ -13,13 +13,11 @@ XMLNodeWithElements >> // aSymbol [
 ]
 
 { #category : #'*Pastell-accessing' }
-XMLNodeWithElements >> child: aSymbol [
-	| answer |
-	
+XMLNodeWithElements >> child: aSymbol [ 
+	| selected |
 	"return all my child nodes whose name is aSymbol"
-	answer := PastellCollection new.
-	self tagsNamed: aSymbol do: [:v | answer add: v].
-	^ answer
+	selected := self elements select: [:each | each name = aSymbol].
+	^ PastellCollection withAll: selected
 ]
 
 { #category : #'*Pastell-accessing' }
