@@ -13,17 +13,13 @@ XMLNodeWithElements >> // aSymbol [
 ]
 
 { #category : #'*Pastell-accessing' }
-XMLNodeWithElements >> addElement: element [
-	element parent: self.
-	self elements add: element
-]
-
-{ #category : #'*Pastell-accessing' }
-XMLNodeWithElements >> child: aSymbol [ 
-	| selected |
+XMLNodeWithElements >> child: aSymbol [
+	| answer |
+	
 	"return all my child nodes whose name is aSymbol"
-	selected := self elements select: [:each | each name = aSymbol].
-	^ PastellCollection withAll: selected
+	answer := PastellCollection new.
+	self tagsNamed: aSymbol do: [:v | answer add: v].
+	^ answer
 ]
 
 { #category : #'*Pastell-accessing' }
@@ -45,7 +41,7 @@ XMLNodeWithElements >> descendant: aSymbol [
 	^ selected
 ]
 
-{ #category : #'*Pastell-error handling' }
+{ #category : #'*Pastell-error handing' }
 XMLNodeWithElements >> doesNotUnderstand: aMessage [
 	"If I have one or more childs whose name is the same as the selector,
 	return them in a PastellCollection.
