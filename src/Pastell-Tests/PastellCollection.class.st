@@ -41,3 +41,13 @@ PastellCollection >> doesNotUnderstand: aMessage [
 		ifEmpty: [super doesNotUnderstand: aMessage]
 		ifNotEmptyDo: [:value | ^ value]
 ]
+
+{ #category : #accessing }
+PastellCollection >> getContentAsString [
+	^ (self contentString inject: '' into: [:sum :el | sum , el]).
+]
+
+{ #category : #accessing }
+PastellCollection >> getContentAsStringSeparatedBy: aCharacter [
+	^ (self contentString inject: '' into: [:sum :el | sum , el, aCharacter asString]) allButLast.
+]

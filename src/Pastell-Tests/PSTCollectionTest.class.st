@@ -143,6 +143,22 @@ PSTCollectionTest >> testSlashSlash [
 ]
 
 { #category : #'as yet unclassified' }
+PSTCollectionTest >> testSlashSlash2 [
+	| xml document |
+	xml := '<a><text>hello </text> <text>world</text></a>'.
+	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	self assert: (document root // #text) getContentAsString = 'hello world'.
+	
+	xml := '<a><text>hello </text> <a><text>world</text></a></a>'.
+	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	self assert: (document root // #text) getContentAsString = 'hello world'.
+	
+	xml := '<a><text>hello </text> <a><text>world</text></a></a>'.
+	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	self assert: (document root // #a / #text) getContentAsString = 'hello world'
+]
+
+{ #category : #'as yet unclassified' }
 PSTCollectionTest >> testWithAll [
 	| coll |
 	coll := OrderedCollection with: 12 with: 13.

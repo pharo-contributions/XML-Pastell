@@ -31,11 +31,10 @@ XMLNodeWithElements >> descendant: aSymbol [
 	"return all my descendants (including myself) whose name is aSymbol"
 	selected := PastellCollection new.
 	self name = aSymbol 
-		ifTrue: [selected add: self]
-		ifFalse: 
-			[self elements ifNotEmpty: 
+		ifTrue: [selected add: self].
+	self elements ifNotEmpty: 
 					[selected 
-						addAll: ((PastellCollection withAll: self elements) descendant: aSymbol)]].
+						addAll: ((PastellCollection withAll: self elements) descendant: aSymbol)].
 	^ selected
 ]
 
