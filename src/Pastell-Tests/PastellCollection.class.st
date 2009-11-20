@@ -44,7 +44,10 @@ PastellCollection >> doesNotUnderstand: aMessage [
 
 { #category : #accessing }
 PastellCollection >> getContentAsString [
-	^ (self contentString inject: '' into: [:sum :el | sum , el]).
+	| ans |
+	ans := WriteStream on: String new.
+	self contentString do: [:el | ans nextPutAll: el].
+	^ ans contents
 ]
 
 { #category : #accessing }
