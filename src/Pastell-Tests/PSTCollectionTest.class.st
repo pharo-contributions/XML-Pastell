@@ -52,10 +52,12 @@ PSTCollectionTest >> testChild [
 { #category : #'as yet unclassified' }
 PSTCollectionTest >> testContentString [
 	| xml document text |
-	xml := '<html><head>Test</head></html>'.
+	xml := '<html>value<head>Test</head></html>'.
 	document := XMLDOMParser parseDocumentFrom: xml readStream.
 	text := document html head contentString.
 	self assert: text first = 'Test'.
+	
+	self assert: (document html getContentAsString = 'value')
 ]
 
 { #category : #'as yet unclassified' }

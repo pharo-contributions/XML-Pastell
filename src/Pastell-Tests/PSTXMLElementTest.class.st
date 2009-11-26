@@ -10,7 +10,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 PSTXMLElementTest >> setUp [
-	xml := '<html lang="it" foo="bar"><head><title/></head><body/></html>'.
+	xml := '<html lang="it" foo="bar">value<head><title/></head><body/></html>'.
 	document := XMLDOMParser parseDocumentFrom: xml readStream
 ]
 
