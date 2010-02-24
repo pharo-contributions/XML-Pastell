@@ -43,7 +43,9 @@ XMLNodeWithElements >> doesNotUnderstand: aMessage [
 	"If I have one or more childs whose name is the same as the selector,
 	return them in a PastellCollection.
 	Otherwise, let the DNU propagate"
-	(self child: aMessage selector)
-		ifEmpty: [super doesNotUnderstand: aMessage]
-		ifNotEmptyDo: [:value | ^ value].
+	| v |
+	v := self child: aMessage selector.
+	^ v
+		ifEmpty: [ super doesNotUnderstand: aMessage ]
+		ifNotEmpty: [ v ].
 ]

@@ -37,9 +37,11 @@ PastellCollection >> descendant: aSymbol [
 
 { #category : #'error handling' }
 PastellCollection >> doesNotUnderstand: aMessage [
-	(self child: aMessage selector)
-		ifEmpty: [super doesNotUnderstand: aMessage]
-		ifNotEmptyDo: [:value | ^ value]
+	| v |
+	v := self child: aMessage selector.
+	^ v 
+		ifEmpty: [ super doesNotUnderstand: aMessage]
+		ifNotEmpty: [ v ]
 ]
 
 { #category : #accessing }
