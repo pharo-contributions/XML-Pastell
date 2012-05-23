@@ -7,12 +7,12 @@ Class {
 	#category : #'Pastell-Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #running }
 PSTCollectionTest >> setUp [
 	collection := PastellCollection new
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testAdd [
 	| result |
 	result := collection add: 12.
@@ -21,14 +21,14 @@ PSTCollectionTest >> testAdd [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testAt [
 	collection add: 12.
 	self assert: (collection at: 1) = 12.
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testAtPut [
 	collection add: 12.
 	collection at: 1 put: 12.
@@ -36,7 +36,7 @@ PSTCollectionTest >> testAtPut [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testChild [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
@@ -49,7 +49,7 @@ PSTCollectionTest >> testChild [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testContentString [
 	| xml document text |
 	xml := '<html>value<head>Test</head></html>'.
@@ -60,7 +60,7 @@ PSTCollectionTest >> testContentString [
 	self assert: (document html getContentAsString = 'value')
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testDNU [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
@@ -73,7 +73,7 @@ PSTCollectionTest >> testDNU [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testDescendant [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
@@ -86,7 +86,7 @@ PSTCollectionTest >> testDescendant [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testDo [
 	| results result |
 	collection add: 12.
@@ -97,12 +97,12 @@ PSTCollectionTest >> testDo [
 	self assert: result = collection
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testNew [
 	self shouldnt: [PastellCollection new: 5] raise: Error
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testRemove [
 	| result |
 	collection add: 12.
@@ -111,14 +111,14 @@ PSTCollectionTest >> testRemove [
 	self assert: result = 12.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testRemoveAbsent [
 	| result |
 	result := collection remove: 12 ifAbsent: [42].
 	self assert: result = 42.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testSlash [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
@@ -131,7 +131,7 @@ PSTCollectionTest >> testSlash [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testSlashSlash [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
@@ -144,7 +144,7 @@ PSTCollectionTest >> testSlashSlash [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testSlashSlash2 [
 	| xml document |
 	xml := '<a><text>hello </text> <text>world</text></a>'.
@@ -160,7 +160,7 @@ PSTCollectionTest >> testSlashSlash2 [
 	self assert: (document root // #a / #text) getContentAsString = 'hello world'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTCollectionTest >> testWithAll [
 	| coll |
 	coll := OrderedCollection with: 12 with: 13.

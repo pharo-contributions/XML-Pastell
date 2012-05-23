@@ -9,13 +9,13 @@ Class {
 	#category : #'Pastell-Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #running }
 PSTXMLNodeWithElementsTest >> setUp [
 	xml := '<html><head><title/></head><body/></html>'.
 	document := XMLDOMParser parseDocumentFrom: xml readStream
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testChild [
 	| results |
 	results := document child: #html.
@@ -24,7 +24,7 @@ PSTXMLNodeWithElementsTest >> testChild [
 	self assert: results first name = #html
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testChildren [
 	| results |
 	results := document root children.
@@ -32,7 +32,7 @@ PSTXMLNodeWithElementsTest >> testChildren [
 	self assert: results first name = #head.
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testDNU [
 	| results |
 	results := document html.
@@ -42,7 +42,7 @@ PSTXMLNodeWithElementsTest >> testDNU [
 	self should: [document reset] raise: MessageNotUnderstood
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testDirectDescendant [
 	| results |
 	results := document root descendant: #head.
@@ -51,7 +51,7 @@ PSTXMLNodeWithElementsTest >> testDirectDescendant [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testSelfDescendant [
 	| results |
 	results := document root descendant: #html.
@@ -59,7 +59,7 @@ PSTXMLNodeWithElementsTest >> testSelfDescendant [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testSlash [
 	| results |
 	results := document / #html.
@@ -68,7 +68,7 @@ PSTXMLNodeWithElementsTest >> testSlash [
 	self assert: results first name = #html
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testSlashSlash [
 	| results |
 	results := document // #title.
@@ -77,7 +77,7 @@ PSTXMLNodeWithElementsTest >> testSlashSlash [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLNodeWithElementsTest >> testUndirectDescendant [
 	| results |
 	results := document root descendant: #title.

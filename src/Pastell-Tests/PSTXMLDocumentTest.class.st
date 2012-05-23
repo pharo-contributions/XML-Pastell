@@ -9,13 +9,13 @@ Class {
 	#category : #'Pastell-Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #running }
 PSTXMLDocumentTest >> setUp [
 	xml := '<html><head><title/></head><body/></html>'.
 	document := XMLDOMParser parseDocumentFrom: xml readStream
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLDocumentTest >> testDescendant [
 	| results |
 	results := document descendant: #title.
@@ -24,7 +24,7 @@ PSTXMLDocumentTest >> testDescendant [
 	
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLDocumentTest >> testRoot [
 	self assert: document root name = #html.
 ]

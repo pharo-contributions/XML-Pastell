@@ -8,23 +8,23 @@ Class {
 	#category : #'Pastell-Tests'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #running }
 PSTXMLElementTest >> setUp [
 	xml := '<html lang="it" foo="bar">value<head><title/></head><body/></html>'.
 	document := XMLDOMParser parseDocumentFrom: xml readStream
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLElementTest >> testAllAttributes [
-	self assert: (document root allAttributes) size = 2
+	self assert: (document root attributes) size = 2
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLElementTest >> testAt [
-	self assert: (document root at: #lang) = 'it'
+	self assert: (document root attributeAt: #lang) = 'it'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : #testing }
 PSTXMLElementTest >> testCommercialAt [
-	self assert: (document root @ #lang) = 'it'
+	self assert: (document root attributeAt: #lang) = 'it'
 ]
