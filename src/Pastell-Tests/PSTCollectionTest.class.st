@@ -57,7 +57,7 @@ PSTCollectionTest >> testContentString [
 	text := document html head contentString.
 	self assert: text first = 'Test'.
 	
-	self assert: (document html getContentAsString = 'value')
+	self assert: (document html getContentAsString =  'value Test')
 ]
 
 { #category : #testing }
