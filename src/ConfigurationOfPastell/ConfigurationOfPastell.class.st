@@ -124,7 +124,7 @@ ConfigurationOfPastell >> baseline10: spec [
 ConfigurationOfPastell >> development: spec [
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '1.0'.
+	spec for: #'common' version: '1.1'.
 
 ]
 
@@ -150,6 +150,19 @@ ConfigurationOfPastell >> version10: spec [
 		spec description: '1.0 : First shoot!'.
 		spec author: 'AlexandreBergel'.
 		spec timestamp: '9/12/2012 11:42'.
+		spec package: 'Pastell' with: 'Pastell-AlexandreBergel.21'. ].
+
+]
+
+{ #category : #versions }
+ConfigurationOfPastell >> version11: spec [
+	<version: '1.1' imports: #('1.0-baseline' )>
+
+	spec for: #'common' do: [
+		spec blessing: #'development'.
+		spec description: '1.0 : First shoot!'.
+		spec author: 'AlexandreBergel'.
+		spec timestamp: '9/12/2012 11:43'.
 		spec package: 'Pastell' with: 'Pastell-AlexandreBergel.21'. ].
 
 ]
