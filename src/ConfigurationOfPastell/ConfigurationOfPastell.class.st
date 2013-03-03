@@ -1,3 +1,6 @@
+"
+(ConfigurationOfPastell project version: #stable) load
+"
 Class {
 	#name : #ConfigurationOfPastell,
 	#superclass : #Object,
@@ -120,6 +123,30 @@ ConfigurationOfPastell >> baseline10: spec [
 
 ]
 
+{ #category : #baselines }
+ConfigurationOfPastell >> baseline11: spec [
+	<version: '1.1-baseline'>
+
+	spec for: #'common' do: [
+		spec blessing: #'baseline'.
+		spec description: 'Adding dependency to XMLParser'.
+		spec repository: 'http://smalltalkhub.com/mc/PharoExtras/Pastell/main'.
+	
+	"depending on XMLParser"
+	spec project: 'XMLParser'
+					with: [ spec 
+								className: 'ConfigurationOfXMLParser';
+								versionString: #stable;
+								repository: 'http://www.smalltalkhub.com/mc/PharoExtras/XMLParser/main'.].
+							
+	"Now we express the dependency at the package level"
+	
+	spec package: 'Pastell' with: [spec requires: 'XMLParser'].		
+	spec group: 'default' with: #('Pastell' )
+	].
+
+]
+
 { #category : #'symbolic versions' }
 ConfigurationOfPastell >> development: spec [
 	<symbolicVersion: #'development'>
@@ -139,6 +166,14 @@ ConfigurationOfPastell >> project [
 		project := constructor project.
 		project loadType: #linear. "change to #atomic if desired"
 		project ]
+]
+
+{ #category : #'symbolic versions' }
+ConfigurationOfPastell >> stable: spec [
+	<symbolicVersion: #'stable'>
+
+	spec for: #'common' version: '1.2'.
+
 ]
 
 { #category : #versions }
@@ -163,6 +198,19 @@ ConfigurationOfPastell >> version11: spec [
 		spec description: '1.0 : First shoot!'.
 		spec author: 'AlexandreBergel'.
 		spec timestamp: '9/12/2012 11:43'.
+		spec package: 'Pastell' with: 'Pastell-AlexandreBergel.21'. ].
+
+]
+
+{ #category : #versions }
+ConfigurationOfPastell >> version12: spec [
+	<version: '1.2' imports: #('1.1-baseline' )>
+
+	spec for: #'common' do: [
+		spec blessing: #'development'.
+		spec description: 'New decent baseline; before splitting the packages in two'.
+		spec author: 'StephaneDucasse'.
+		spec timestamp: '03/03/2013 16:43'.
 		spec package: 'Pastell' with: 'Pastell-AlexandreBergel.21'. ].
 
 ]
