@@ -253,7 +253,7 @@ ConfigurationOfPastell >> version13: spec [
 		spec description: 'Splitting in two packages and adding groups'.
 		spec author: 'StephaneDucasse'.
 		spec timestamp: '03/03/2013 16:43'.
-		spec package: 'Pastell-Base' with: 'Pastell-Base-AlexandreBergel.1'. 
+		spec package: 'Pastell-Base' with: 'Pastell-Base-StephaneDucasse.2'. 
 		spec package: 'Pastell-Tests' with: 'Pastell-Tests-AlexandreBergel.1'. ].
 
 ]
