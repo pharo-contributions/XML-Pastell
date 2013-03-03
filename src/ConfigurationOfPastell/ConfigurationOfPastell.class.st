@@ -1,5 +1,7 @@
 "
 (ConfigurationOfPastell project version: #stable) load
+
+(ConfigurationOfPastell project version: #development) load: 'Tests'
 "
 Class {
 	#name : #ConfigurationOfPastell,
@@ -147,11 +149,38 @@ ConfigurationOfPastell >> baseline11: spec [
 
 ]
 
+{ #category : #baselines }
+ConfigurationOfPastell >> baseline12: spec [
+	<version: '1.2-baseline'>
+
+	spec for: #'common' do: [
+		spec blessing: #'baseline'.
+		spec description: 'With now two packages'.
+		spec repository: 'http://smalltalkhub.com/mc/PharoExtras/Pastell/main'.
+	
+	"depending on XMLParser"
+	spec project: 'XMLParser'
+					with: [ spec 
+								className: 'ConfigurationOfXMLParser';
+								versionString: #stable;
+								repository: 'http://www.smalltalkhub.com/mc/PharoExtras/XMLParser/main'.].
+							
+	"Now we express the dependency at the package level"
+	
+	spec package: 'Pastell-Base' with: [spec requires: 'XMLParser'].		
+	spec package: 'Pastell-Tests' with: [ spec requires: 'Pastell-Base' ].
+	spec group: 'default' with: #('Pastell-Base' ).
+	spec group: 'Core' with: #('Pastell-Base' ).
+	spec group: 'Tests' with: #('Pastell-Tests' )
+	].
+
+]
+
 { #category : #'symbolic versions' }
 ConfigurationOfPastell >> development: spec [
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '1.1'.
+	spec for: #'common' version: '1.3'.
 
 ]
 
@@ -212,5 +241,19 @@ ConfigurationOfPastell >> version12: spec [
 		spec author: 'StephaneDucasse'.
 		spec timestamp: '03/03/2013 16:43'.
 		spec package: 'Pastell' with: 'Pastell-AlexandreBergel.21'. ].
+
+]
+
+{ #category : #versions }
+ConfigurationOfPastell >> version13: spec [
+	<version: '1.3' imports: #('1.2-baseline' )>
+
+	spec for: #'common' do: [
+		spec blessing: #'development'.
+		spec description: 'Splitting in two packages and adding groups'.
+		spec author: 'StephaneDucasse'.
+		spec timestamp: '03/03/2013 16:43'.
+		spec package: 'Pastell-Base' with: 'Pastell-Base-AlexandreBergel.1'. 
+		spec package: 'Pastell-Tests' with: 'Pastell-Tests-AlexandreBergel.1'. ].
 
 ]
