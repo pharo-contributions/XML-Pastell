@@ -169,7 +169,8 @@ ConfigurationOfPastell >> baseline12: spec [
 	
 	spec package: 'Pastell-Base' with: [spec requires: 'XMLParser'].		
 	spec package: 'Pastell-Tests' with: [ spec requires: 'Pastell-Base' ].
-	spec group: 'default' with: #('Pastell-Base' ).
+	spec group: 'default' with: #('Core' 'Tests' ).
+	"default by default is equivalent to loading 'ALL' the packages still we added explicitly Tests to be loaded"
 	spec group: 'Core' with: #('Pastell-Base' ).
 	spec group: 'Tests' with: #('Pastell-Tests' )
 	].
