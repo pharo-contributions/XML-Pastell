@@ -40,7 +40,7 @@ PSTCollectionTest >> testAtPut [
 PSTCollectionTest >> testChild [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	html := document child: #html.
 	heads := html child: #head.
 	self assert: heads size = 2.
@@ -53,7 +53,7 @@ PSTCollectionTest >> testChild [
 PSTCollectionTest >> testContentString [
 	| xml document text |
 	xml := '<html>value<head>Test</head></html>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	text := document html head contentString.
 	self assert: text first = 'Test'.
 	
@@ -64,7 +64,7 @@ PSTCollectionTest >> testContentString [
 PSTCollectionTest >> testDNU [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	html := document html.
 	heads := html head.
 	self assert: heads size = 2.
@@ -77,7 +77,7 @@ PSTCollectionTest >> testDNU [
 PSTCollectionTest >> testDescendant [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	html := document child: #html.
 	heads := html descendant: #head.
 	self assert: heads size = 2.
@@ -122,7 +122,7 @@ PSTCollectionTest >> testRemoveAbsent [
 PSTCollectionTest >> testSlash [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	html := document / #html.
 	heads := html / #head.
 	self assert: heads size = 2.
@@ -135,7 +135,7 @@ PSTCollectionTest >> testSlash [
 PSTCollectionTest >> testSlashSlash [
 	| xml document html heads |
 	xml := '<html><head/><head/></html>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	html := document / #html.
 	heads := html // #head.
 	self assert: heads size = 2.
@@ -148,15 +148,15 @@ PSTCollectionTest >> testSlashSlash [
 PSTCollectionTest >> testSlashSlash2 [
 	| xml document |
 	xml := '<a><text>hello </text> <text>world</text></a>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	self assert: (document root // #text) getContentAsString = 'hello world'.
 	
 	xml := '<a><text>hello </text> <a><text>world</text></a></a>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	self assert: (document root // #text) getContentAsString = 'hello world'.
 	
 	xml := '<a><text>hello </text> <a><text>world</text></a></a>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream.
+	document := XMLDOMParser parse: xml readStream.
 	self assert: (document root // #a / #text) getContentAsString = 'hello world'
 ]
 
