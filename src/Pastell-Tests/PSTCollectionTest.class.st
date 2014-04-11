@@ -52,9 +52,9 @@ PSTCollectionTest >> testChild [
 { #category : #testing }
 PSTCollectionTest >> testContentString [
 	| xml document text |
-	xml := '<html>value<head>Test</head></html>'.
+	xml := '<html>value<testElement>Test</testElement></html>'.
 	document := XMLDOMParser parse: xml readStream.
-	text := document html head contentString.
+	text := document html testElement contentString.
 	self assert: text first = 'Test'.
 	
 	self assert: (document html getContentAsString =  'value Test')
@@ -62,14 +62,14 @@ PSTCollectionTest >> testContentString [
 
 { #category : #testing }
 PSTCollectionTest >> testDNU [
-	| xml document html heads |
-	xml := '<html><head/><head/></html>'.
+	| xml document html testElements |
+	xml := '<html><testElement/><testElement/></html>'.
 	document := XMLDOMParser parse: xml readStream.
 	html := document html.
-	heads := html head.
-	self assert: heads size = 2.
-	self assert: heads first name = #head.
-	self assert: heads last name = #head
+	testElements := html testElement.
+	self assert: testElements size = 2.
+	self assert: testElements first name = #testElement.
+	self assert: testElements last name = #testElement
 	
 ]
 
