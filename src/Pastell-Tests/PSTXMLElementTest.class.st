@@ -11,7 +11,7 @@ Class {
 { #category : #running }
 PSTXMLElementTest >> setUp [
 	xml := '<html lang="it" foo="bar">value<head><title/></head><body/></html>'.
-	document := XMLDOMParser parseDocumentFrom: xml readStream
+	document := XMLDOMParser parse: xml readStream
 ]
 
 { #category : #testing }
