@@ -12,7 +12,7 @@ Class {
 { #category : #running }
 PSTXMLNodeWithElementsTest >> setUp [
 	xml := '<html><head><title/></head><body/></html>'.
-	document := XMLDOMParser parse: xml readStream
+	document := XMLDOMParser parseDocumentFrom: xml readStream
 ]
 
 { #category : #testing }
