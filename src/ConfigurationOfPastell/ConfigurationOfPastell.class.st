@@ -181,7 +181,7 @@ ConfigurationOfPastell >> baseline12: spec [
 ConfigurationOfPastell >> development: spec [
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '1.3'.
+	spec for: #'common' version: '1.2-baseline'.
 
 ]
 
