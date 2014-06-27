@@ -202,7 +202,7 @@ ConfigurationOfPastell >> project [
 ConfigurationOfPastell >> stable: spec [
 	<symbolicVersion: #'stable'>
 
-	spec for: #'common' version: '1.3'.
+	spec for: #'common' version: '1.4'.
 
 ]
 
@@ -256,5 +256,21 @@ ConfigurationOfPastell >> version13: spec [
 		spec timestamp: '03/03/2013 16:43'.
 		spec package: 'Pastell-Base' with: 'Pastell-Base-StephaneDucasse.2'. 
 		spec package: 'Pastell-Tests' with: 'Pastell-Tests-AlexandreBergel.1'. ].
+
+]
+
+{ #category : #versions }
+ConfigurationOfPastell >> version14: spec [
+	<version: '1.4' imports: #('1.2-baseline' )>
+
+	spec for: #'common' do: [
+		spec blessing: #'stable'.
+		spec description: 'version 1.4'.
+		spec author: 'GuillaumeLarcheveque'.
+		spec timestamp: '6/27/2014 15:53'.
+		spec project: 'XMLParser' with: '1.6.4'.
+		spec 
+			package: 'Pastell-Base' with: 'Pastell-Base-StephaneDucasse.2';
+			package: 'Pastell-Tests' with: 'Pastell-Tests-YuriyTymchuk.4'. ].
 
 ]
