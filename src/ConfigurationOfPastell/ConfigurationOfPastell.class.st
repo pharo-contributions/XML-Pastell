@@ -202,7 +202,7 @@ ConfigurationOfPastell >> project [
 ConfigurationOfPastell >> stable: spec [
 	<symbolicVersion: #'stable'>
 
-	spec for: #'common' version: '1.5'.
+	spec for: #'common' version: '1.4'.
 
 ]
 
@@ -269,22 +269,6 @@ ConfigurationOfPastell >> version14: spec [
 		spec author: 'GuillaumeLarcheveque'.
 		spec timestamp: '6/27/2014 15:53'.
 		spec project: 'XMLParser' with: '1.6.4'.
-		spec 
-			package: 'Pastell-Base' with: 'Pastell-Base-StephaneDucasse.2';
-			package: 'Pastell-Tests' with: 'Pastell-Tests-YuriyTymchuk.4'. ].
-
-]
-
-{ #category : #versions }
-ConfigurationOfPastell >> version15: spec [
-	<version: '1.5' imports: #('1.2-baseline' )>
-
-	spec for: #'common' do: [
-		spec blessing: #'stable'.
-		spec description: 'version 1.5'.
-		spec author: 'GuillaumeLarcheveque'.
-		spec timestamp: '6/27/2014 16:18'.
-		spec project: 'XMLParser' with: '1.6.5'.
 		spec 
 			package: 'Pastell-Base' with: 'Pastell-Base-StephaneDucasse.2';
 			package: 'Pastell-Tests' with: 'Pastell-Tests-YuriyTymchuk.4'. ].
