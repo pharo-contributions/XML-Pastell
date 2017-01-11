@@ -34,6 +34,36 @@ ConfigurationOfPastell class >> baseConfigurationClassIfAbsent: aBlock [
 
 ]
 
+{ #category : #catalog }
+ConfigurationOfPastell class >> catalogChangeLog [
+	"Returns a paragraph describing the most important changes in the configuration class."
+	^ ''
+]
+
+{ #category : #catalog }
+ConfigurationOfPastell class >> catalogContactInfo [
+	"Returns a paragraph describing contact information such as email, mailing lists and website."
+	^ 'You can contact the authors on the Pharo mailinglist http://lists.pharo.org'
+]
+
+{ #category : #catalog }
+ConfigurationOfPastell class >> catalogDescription [
+	"Returns a paragraph describing the project"
+	^ 'Pastell is an add-on for XMLParser which adds some methods that make navigation of an XML DOM tree much easier, it is a XMLPath-like library.'
+]
+
+{ #category : #catalog }
+ConfigurationOfPastell class >> catalogKeyClassesAndExample [
+	"Returns a paragraph or more describing the key classes of your project. You can use Pillar/Pier syntax to layout out the text i.e., ==Code== and - for bullet."
+	^ ''
+]
+
+{ #category : #catalog }
+ConfigurationOfPastell class >> catalogKeywords [
+	"Returns an array of symbols"
+	^ #(xml xpath) 
+]
+
 { #category : #private }
 ConfigurationOfPastell class >> ensureMetacello [
 
