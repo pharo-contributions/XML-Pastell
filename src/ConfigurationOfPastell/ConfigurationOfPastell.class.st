@@ -143,7 +143,7 @@ ConfigurationOfPastell class >> validate [
 	^ ((Smalltalk at: #MetacelloToolBox) validateConfiguration: self debug: #() recurse: false) explore
 ]
 
-{ #category : #baselines }
+{ #category : #'outdated - baselines' }
 ConfigurationOfPastell >> baseline10: spec [
 	<version: '1.0-baseline'>
 
@@ -155,7 +155,7 @@ ConfigurationOfPastell >> baseline10: spec [
 
 ]
 
-{ #category : #baselines }
+{ #category : #'outdated - baselines' }
 ConfigurationOfPastell >> baseline11: spec [
 	<version: '1.1-baseline'>
 
@@ -179,7 +179,7 @@ ConfigurationOfPastell >> baseline11: spec [
 
 ]
 
-{ #category : #baselines }
+{ #category : #'outdated - baselines' }
 ConfigurationOfPastell >> baseline12: spec [
 	<version: '1.2-baseline'>
 
@@ -208,11 +208,22 @@ ConfigurationOfPastell >> baseline12: spec [
 ]
 
 { #category : #'symbolic versions' }
+ConfigurationOfPastell >> dev: spec [
+	<version: #'dev'>
+
+	spec for: #'common' do: [ 
+		spec
+			baseline: 'Pastell' with: [ 
+				spec 
+					className: 'BaselineOfPastell';
+					repository: 'github://pharo-contributions/XML-Pastell:master/src' ]]
+]
+
+{ #category : #'symbolic versions' }
 ConfigurationOfPastell >> development: spec [
 	<symbolicVersion: #'development'>
 
-	spec for: #'common' version: '1.2-baseline'.
-
+	spec for: #'common' version: 'dev'
 ]
 
 { #category : #accessing }
@@ -232,11 +243,11 @@ ConfigurationOfPastell >> project [
 ConfigurationOfPastell >> stable: spec [
 	<symbolicVersion: #'stable'>
 
-	spec for: #'common' version: '1.5'.
-
+	spec for: #'common' version: '1.6.0'
+	 
 ]
 
-{ #category : #versions }
+{ #category : #'outdated - versions' }
 ConfigurationOfPastell >> version10: spec [
 	<version: '1.0' imports: #('1.0-baseline' )>
 
@@ -249,7 +260,7 @@ ConfigurationOfPastell >> version10: spec [
 
 ]
 
-{ #category : #versions }
+{ #category : #'outdated - versions' }
 ConfigurationOfPastell >> version11: spec [
 	<version: '1.1' imports: #('1.0-baseline' )>
 
@@ -262,7 +273,7 @@ ConfigurationOfPastell >> version11: spec [
 
 ]
 
-{ #category : #versions }
+{ #category : #'outdated - versions' }
 ConfigurationOfPastell >> version12: spec [
 	<version: '1.2' imports: #('1.1-baseline' )>
 
@@ -275,7 +286,7 @@ ConfigurationOfPastell >> version12: spec [
 
 ]
 
-{ #category : #versions }
+{ #category : #'outdated - versions' }
 ConfigurationOfPastell >> version13: spec [
 	<version: '1.3' imports: #('1.2-baseline' )>
 
@@ -289,7 +300,7 @@ ConfigurationOfPastell >> version13: spec [
 
 ]
 
-{ #category : #versions }
+{ #category : #'outdated - versions' }
 ConfigurationOfPastell >> version14: spec [
 	<version: '1.4' imports: #('1.2-baseline' )>
 
@@ -305,7 +316,7 @@ ConfigurationOfPastell >> version14: spec [
 
 ]
 
-{ #category : #versions }
+{ #category : #'outdated - versions' }
 ConfigurationOfPastell >> version15: spec [
 	<version: '1.5' imports: #('1.2-baseline' )>
 
@@ -319,4 +330,16 @@ ConfigurationOfPastell >> version15: spec [
 			package: 'Pastell-Base' with: 'Pastell-Base-StephaneDucasse.2';
 			package: 'Pastell-Tests' with: 'Pastell-Tests-YuriyTymchuk.4'. ].
 
+]
+
+{ #category : #versions }
+ConfigurationOfPastell >> version160: spec [
+	<version: '1.6.0'>
+
+	spec for: #'common' do: [ 
+		spec
+			baseline: 'Pastell' with: [ 
+				spec 
+					className: 'BaselineOfPastell';
+					repository: 'github://pharo-contributions/XML-Pastell:1.6.0/src' ]]
 ]
