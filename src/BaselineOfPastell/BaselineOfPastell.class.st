@@ -19,7 +19,7 @@ BaselineOfPastell >> baselineOf: spec [
 			"Packages"
 			spec 
 				package: 'Pastell-Base' with: [ spec requires: #('XMLParser') ];
-				package: 'Pastell-Tests' with: [ spec requires: #('XMLParser Tests' 'Pastell-Tests') ].
+				package: 'Pastell-Tests' with: [ spec requires: #('XMLParser Tests' 'Pastell-Base') ].
 			
 			"Groups"
 			spec
